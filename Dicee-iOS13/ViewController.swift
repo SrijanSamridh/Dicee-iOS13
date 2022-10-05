@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var diceImageView1: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceSix");
+        diceImageView1.alpha = 0.5;
     }
 
 
