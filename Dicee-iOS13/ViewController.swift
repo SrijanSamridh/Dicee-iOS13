@@ -10,15 +10,35 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // " ^control key " to create connections from Interface Builder.
     @IBOutlet weak var diceImageView1: UIImageView!
+    @IBOutlet weak var diceImageView2: UIImageView!
     
+    var leftDiceNumber:Int = 1;
+    var rightDiceNumber:Int = 4;
+    
+    var images:Array = [
+        UIImage(imageLiteralResourceName:"DiceOne"),
+        UIImage(imageLiteralResourceName: "DiceTwo"),
+        UIImage(imageLiteralResourceName: "DiceThree"),
+        UIImage(imageLiteralResourceName: "DiceFour"),
+        UIImage(imageLiteralResourceName: "DiceFive"),
+        UIImage(imageLiteralResourceName: "DiceSix")
+    ];
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diceImageView1.image = UIImage(imageLiteralResourceName: "DiceSix");
-        diceImageView1.alpha = 0.5;
     }
 
-
+    @IBAction func rollButtonPressed(_ sender: UIButton) {
+        
+        diceImageView1.image = images [leftDiceNumber];
+        leftDiceNumber = (leftDiceNumber + 1) % 6;
+        
+        diceImageView2.image = images [rightDiceNumber];
+        rightDiceNumber = (rightDiceNumber + 1) % 6;
+    }
+    
 }
 
